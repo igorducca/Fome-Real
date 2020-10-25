@@ -5,6 +5,7 @@ import Landing from './pages/Landing'
 import Pedir from './pages/Pedir'
 import Criar from './pages/Criar'
 import Sucesso from './pages/Sucesso'
+import Lojas from './pages/Lojas'
 
 export default function routes() {
     return (
@@ -14,6 +15,7 @@ export default function routes() {
                 <Route path="/pedir" component={Pedir} />
                 <Route path="/criar" exact component={Criar} />
                 <Route path="/criar/sucesso" component={Sucesso} />
+                <Route path="/lojas/:loja" children={Lojas} />
             </Switch>
         </BrowserRouter>
     )
