@@ -54,7 +54,7 @@ export default function Sucesso() {
            </div>
 
            <div className="centered">
-                <h2 id="wellDono">Muito bem, {dono}, agora outras pessoas podem ver sua loja! 👏</h2>
+                <h2 id="wellDono">Muito bem,, agora outras pessoas podem ver sua loja! 👏</h2>
            </div>
 
            <div className="centered">
