@@ -26,7 +26,7 @@ export default function Sucesso() {
 
             var data = resp.data
 
-            var dono = data.dono_da_loja
+            var dono = data.nome_do_dono
 
             document.getElementById("wellDono").innerText = `Muito bem, ${dono}, agora outras pessoas podem ver sua loja! 👏`
         })
