@@ -107,11 +107,8 @@ export default function CreateOrphanage() {
                     </div>
 
                     <div className="input-block">
-                        <label htmlFor="nomeDaLoja" style={{marginTop:"15px"}} onChange={ (key) => {
-                             setNomeDaLoja(key.target.value) 
-                             document.getElementById("finalLinkPath").to = `/criar?dn=${nome_do_dono}&nm=${nome_da_loja}`
-                             } } value={nome_da_loja} >Nome da loja</label>
-                        <input id="nomeDaLoja" />
+                        <label htmlFor="nomeDaLoja" style={{marginTop:"15px"}}></label>
+                        <input id="nomeDaLoja" onChange={ (key) => { setNomeDaLoja(key.target.value) } } value={nome_do_dono} />
                     </div>
 
                     <div className="input-block">
