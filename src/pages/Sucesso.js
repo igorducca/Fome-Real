@@ -15,7 +15,7 @@ export default function Sucesso() {
 
     let token = query.get("tk")
 
-    const [ url, setUrl ] = useState('')
+    const [ FinalUrl, setUrl ] = useState('')
 
     useEffect(() => {
 
@@ -30,12 +30,12 @@ export default function Sucesso() {
 
             document.getElementById("wellDono").innerText = `Muito bem, ${dono}, agora outras pessoas podem ver sua loja! 👏`
 
-            setUrl(data.nome_da_loja)
+            setUrl(`https://fomereal.netlify.app/lojas/${data.nome_da_loja}`)
         })
 
         axios.post("https://fomereal-server.herokuapp.com/comercio/link/shorten", {
             body: {
-                "url":url
+                "url":FinalUrl
             }
         })
         .then(resp => {
