@@ -8,6 +8,6 @@ export default function Lojas() {
     alert(loja)
 
     return (
-        <h1>Lojas</h1>
+        <h1>Loja: {loja}</h1>
     )
 }
