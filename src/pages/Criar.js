@@ -69,11 +69,12 @@ export default function CreateOrphanage() {
         var descricao = document.getElementById("lojaDesc").value
         var localizacao = document.getElementById("localizacao").value
         var produtosDaLoja = $( "#produtosDaLoja option:selected" ).text();
+        var dono = nome_do_dono
 
         var finalData = {
             nome_da_loja: nome_da_loja,
-            nome_do_dono: nome_do_dono,
-            horario_de_atendimento: horario_de_atendimento,
+            nome_do_dono: dono,
+            atendimento: horario_de_atendimento,
             produto_vendido: produtosDaLoja,
             localizacao: localizacao,
             whats: whats,
