@@ -1,0 +1,91 @@
+#createPointBody {
+    background: url("../../assets/pedido-background.png");
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.contentDivWrapper {
+    min-height: 700px;
+    width: 700px;
+    border-radius: 24px;
+    background-color: #FFF;
+    padding: 20px;
+}
+
+#centeredFormTitle {
+    font-size: 36px;
+}
+
+.minorMapHolder {
+    padding: 10px;
+    background-color: #dd3636;
+    border-radius: 24px;
+}
+
+hr {
+    border: 2px solid #121212;
+    border-radius: 12px;
+    width: 500px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.input-block input {
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    width: 500px;
+    font-size: 24px;
+    padding: 15px;
+    background: #eff4f8;
+    border: none;
+    border-radius: 24px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 900;
+    margin-top: 10px;
+}
+
+#comercySettingsTitle {
+    max-width: 500px;
+}
+
+#comercySettings select {
+    height: 70px;
+    width: 500px;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    border-radius: 8px;
+    padding: 10px;
+    background: #eff4f8;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+#comercySettings option {
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+}
+
+#horarioDeAtendimento textarea {
+    height: 80px;
+    width: 500px;
+    border-radius: 8px;
+    padding: 15px;
+    background: #eff4f8;
+    font-size: 18px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 900;
+    border: none;
+}
+
+#addFotosDiv {
+    height: 70px;
+    width: 500px;
+    border-radius: 8px;
+    display: flex;
+    justify-content:center;
+    background: #eff4f8;
+}

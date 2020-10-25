@@ -1,0 +1,12 @@
+:root {
+    --primary-orange: #F28705;
+    --primary-darker-orange: #F27405;
+
+    --secondaryYellow: #F2B705;
+    --seconadaryDarkerYellow: #F29F05;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
