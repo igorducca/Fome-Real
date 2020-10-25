@@ -110,7 +110,7 @@ export default function CreateOrphanage() {
 
             if(resp) {
                 sleep(8000)
-                window.location.href = `/criar/sucesso?dn=${nome_do_dono}&nm=${nome_da_loja}`
+                window.location.href = `https://fomereal.netlify.app/criar/sucesso?dn=${nome_do_dono}&nm=${nome_do_dono}`
             }
         })
     }
