@@ -90,6 +90,8 @@ export default function CreateOrphanage() {
 
             if(resp != null) {
                 sleep(5000)
+
+                window.location.href = `/sucesso?tk=${resp.data.lojaInfo.token}`
             }
         })
     }
