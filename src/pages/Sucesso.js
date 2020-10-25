@@ -15,8 +15,6 @@ export default function Sucesso() {
 
     let token = query.get("tk")
 
-    const [ FinalUrl, setUrl ] = useState('')
-
     useEffect(() => {
 
         axios.get("https://fomereal-server.herokuapp.com/comercio/find/token/"+token)
@@ -30,21 +28,19 @@ export default function Sucesso() {
 
             document.getElementById("wellDono").innerText = `Muito bem, ${dono}, agora outras pessoas podem ver sua loja! 👏`
 
-            setUrl(`https://fomereal.netlify.app/lojas/${data.nome_da_loja}`)
-        })
-
-        axios.post("https://fomereal-server.herokuapp.com/comercio/link/shorten", {
-            body: {
-                "url":FinalUrl
-            }
-        })
-        .then(resp => {
-
-            console.log(resp)
-
-            var qrcode = resp.data.qrcode
-
-            document.getElementById("qrcodeImg").src = qrcode
+            axios.post("https://fomereal-server.herokuapp.com/comercio/link/shorten", {
+                body: {
+                    "url":`https://fomereal.netlify.app/lojas/${data.nome_da_loja}`
+                }
+            })
+            .then(resp => {
+    
+                console.log(resp)
+    
+                var qrcode = resp.data.qrcode
+    
+                document.getElementById("qrcodeImg").src = qrcode
+            })
         })
     }, [])
 
