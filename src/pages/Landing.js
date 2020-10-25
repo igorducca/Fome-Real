@@ -100,7 +100,7 @@ export default function Landing() {
 
                     <div className="centered">
                         <Link to="/criar">
-                            <button id="createRestaurantPointButton">Adicionar meu restaurante</button>
+                            <button id="createRestaurantPointButton">Adicionar minha loja</button>
                         </Link>
                     </div>
                 </div>

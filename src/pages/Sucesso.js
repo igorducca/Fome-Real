@@ -21,6 +21,9 @@ export default function Sucesso() {
 
         axios.get("https://fomereal-server.herokuapp.com/comercio/find/token/"+token)
         .then(resp => {
+
+            console.log(resp)
+
             var data = resp.data
 
             var dono = data.dono_da_loja
