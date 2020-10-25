@@ -15,7 +15,7 @@ export default function routes() {
                 <Route path="/pedir" component={Pedir} />
                 <Route path="/criar" exact component={Criar} />
                 <Route path="/criar/sucesso" component={Sucesso} />
-                <Route path="/lojas/:loja" children={Lojas} />
+                <Route path="/lojas/:id" children={<Lojas />} />
             </Switch>
         </BrowserRouter>
     )

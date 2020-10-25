@@ -3,11 +3,9 @@ import { useParams } from 'react-router-dom'
 
 export default function Lojas() {
 
-    let { loja } = useParams();
-
-    alert(loja)
+    let { id } = useParams();
 
     return (
-        <h1>Loja: {loja}</h1>
+        <h1>Loja: {id}</h1>
     )
 }
