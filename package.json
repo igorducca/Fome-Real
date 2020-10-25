@@ -1,7 +1,7 @@
 {
   "name": "fomereal",
   "version": "0.1.0",
-  "homepage": "http://igorducca.github.io/Fome-Real",
+  "homepage": "http://igorducca.github.io/fomereal",
   "private": true,
   "dependencies": {
     "@shopify/polaris": "^5.8.6",
