@@ -69,11 +69,11 @@ export default function CreateOrphanage() {
         var descricao = document.getElementById("lojaDesc").value
         var localizacao = document.getElementById("localizacao").value
         var produtosDaLoja = $( "#produtosDaLoja option:selected" ).text();
-        var dono = nome_do_dono
+        var Ndono = document.getElementById("name").value
 
         var finalData = {
             nome_da_loja: nome_da_loja,
-            nome_do_dono: dono,
+            nome_do_dono: Ndono,
             atendimento: horario_de_atendimento,
             produto_vendido: produtosDaLoja,
             localizacao: localizacao,
@@ -107,8 +107,8 @@ export default function CreateOrphanage() {
                     </div>
 
                     <div className="input-block">
-                        <label htmlFor="nomeDaLoja" style={{marginTop:"15px"}}></label>
-                        <input id="nomeDaLoja" onChange={ (key) => { setNomeDaLoja(key.target.value) } } value={nome_do_dono} />
+                        <label htmlFor="nomeDaLoja" style={{marginTop:"15px"}}>Nome da loja</label>
+                        <input id="nomeDaLoja" onChange={ (key) => { setNomeDaLoja(key.target.value) } } value={nome_da_loja} />
                     </div>
 
                     <div className="input-block">
