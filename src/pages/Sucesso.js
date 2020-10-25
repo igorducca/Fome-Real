@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import $ from 'jquery';
 import axios from 'axios';
@@ -15,7 +15,7 @@ export default function Sucesso() {
 
     let token = query.get("tk")
 
-    let url = `https://fomereal.netlify.app/lojas?tk=${token}`
+    const [ url, setUrl ] = useState('')
 
     useEffect(() => {
 
@@ -29,6 +29,8 @@ export default function Sucesso() {
             var dono = data.nome_do_dono
 
             document.getElementById("wellDono").innerText = `Muito bem, ${dono}, agora outras pessoas podem ver sua loja! 👏`
+
+            setUrl(data.nome_da_loja)
         })
 
         axios.post("https://fomereal-server.herokuapp.com/comercio/link/shorten", {
