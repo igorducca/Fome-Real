@@ -28,9 +28,11 @@ export default function Sucesso() {
 
             document.getElementById("wellDono").innerText = `Muito bem, ${dono}, agora outras pessoas podem ver sua loja! 👏`
 
+            var urlNomeDaLoja = encodeURIComponent(data.nome_da_loja.trim())
+
             axios.post("https://fomereal-server.herokuapp.com/comercio/link/shorten", {
                 body: {
-                    "url":`https://fomereal.netlify.app/lojas/${data.nome_da_loja}`
+                    "url":`https://fomereal.netlify.app/lojas/${urlNomeDaLoja}`
                 }
             })
             .then(resp => {
