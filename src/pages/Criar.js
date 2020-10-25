@@ -72,7 +72,7 @@ export default function CreateOrphanage() {
 
                 sleep(5000)
 
-                window.location.href = window.location.href
+                window.location.reload()
             })
         }
         else {
