@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import $ from 'jquery'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 import { FiPlus } from "react-icons/fi";
 
@@ -17,28 +18,6 @@ export default function CreateOrphanage() {
 
     function clickFileInput() {
         $("#fotoDeBanner").click();
-    }
-
-    function handleFile(image) {
-        console.log(image.target.files[0])
-
-        const fileReader = new FileReader()
-
-        fileReader.onloadend = function (){
-            console.log(fileReader.result)
-
-            let form = new FormData()
-
-            form.append("image", image.target.files[0])
-
-            console.log(form)
-
-            setBannerImage(form)
-
-            $("#bannerImagePreview").attr("src",fileReader.result)
-            document.getElementById("bannerImagePreview").hidden = false
-        }
-        fileReader.readAsDataURL(image.target.files[0])
     }
 
     useEffect(() => {

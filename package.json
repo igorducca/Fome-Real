@@ -1,6 +1,9 @@
 {
   "name": "fomereal",
   "version": "0.1.0",
+  "homepage": "http://igorducca.github.io/Fome-Real",
+  "predeploy": "yarn build",
+  "deploy": "gh-pages -d build",
   "private": true,
   "dependencies": {
     "@shopify/polaris": "^5.8.6",
