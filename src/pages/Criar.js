@@ -12,7 +12,8 @@ import 'leaflet/dist/leaflet.css'
 
 export default function CreateOrphanage() {
 
-    var [ bannerImage, setBannerImage ] = useState('')
+    var [ nome_do_dono, setNomeDoDono ] = useState('')
+    var [ nome_da_loja, setNomeDaLoja ] = useState('')
 
     function clickFileInput() {
         $("#fotoDeBanner").click();
@@ -82,7 +83,6 @@ export default function CreateOrphanage() {
     }
 
     function adicionarLoja() {
-        var nome_do_dono = document.getElementById("name").value
         var nome_da_loja = document.getElementById("nomeDaLoja").value
         var horario_de_atendimento = document.getElementById("horarioDeAtendimento").value
         var whats = document.getElementById("numWhats").value
@@ -107,11 +107,6 @@ export default function CreateOrphanage() {
         axios.post("https://fomereal-server.herokuapp.com/comercios/criar", finalData)
         .then( resp => {
             console.log(resp)
-
-            if(resp) {
-                sleep(8000)
-                window.location.href = `https://fomereal.netlify.app/criar/sucesso?dn=${nome_do_dono}&nm=${nome_do_dono}`
-            }
         })
     }
 
@@ -127,12 +122,15 @@ export default function CreateOrphanage() {
                     <legend>Dados da sua loja</legend>
 
                     <div className="input-block">
-                        <label htmlFor="name" style={{marginTop:"15px"}}>Seu nome (Dono da loja)</label>
+                        <label htmlFor="name" style={{marginTop:"15px"}} onChange={ (key) => { setNomeDoDono(key.target.value) } } value={nome_do_dono} >Seu nome (Dono da loja)</label>
                         <input id="name" />
                     </div>
 
                     <div className="input-block">
-                        <label htmlFor="nomeDaLoja" style={{marginTop:"15px"}}>Nome da loja</label>
+                        <label htmlFor="nomeDaLoja" style={{marginTop:"15px"}} onChange={ (key) => {
+                             setNomeDaLoja(key.target.value) 
+                             document.getElementById("finalLinkPath").to = `/criar?dn=${nome_do_dono}&nm=${nome_da_loja}`
+                             } } value={nome_da_loja} >Nome da loja</label>
                         <input id="nomeDaLoja" />
                     </div>
 
@@ -209,9 +207,11 @@ export default function CreateOrphanage() {
 
                     <h2 style={{color:"#36CF82"}}>Fico feliz em te ver participando!</h2>
 
-                    <button className="confirm-button" type="submit" onClick={ adicionarLoja } type="button">
-                        Confirmar
-                    </button>
+                    <Link id="finalLinkPath">
+                        <button className="confirm-button" type="submit" onClick={ adicionarLoja } type="button">
+                            Confirmar
+                        </button>
+                    </Link>
                 </form>
             </main>
         </div>
