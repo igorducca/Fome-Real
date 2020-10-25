@@ -13,12 +13,21 @@ export default function Sucesso() {
 
     let query = useQuery();
 
-    let dono = query.get('dn')
-    let nome = query.get('nm')
+    let token = query.get("tk")
 
-    let url = `https://fomereal.netlify.app/lojas?lj=${nome}`
+    let url = `https://fomereal.netlify.app/lojas?tk=${token}`
 
     useEffect(() => {
+
+        axios.get("https://fomereal-server.herokuapp.com/comercio/find/token/"+token)
+        .then(resp => {
+            var data = resp.data
+
+            var dono = data.dono_da_loja
+
+            document.getElementById("wellDono").innerText = `Muito bem, ${dono}, agora outras pessoas podem ver sua loja! 👏`
+        })
+
         axios.post("https://fomereal-server.herokuapp.com/comercio/link/shorten", {
             body: {
                 "url":url
@@ -45,7 +54,7 @@ export default function Sucesso() {
            </div>
 
            <div className="centered">
-                <h2>Muito bem, {dono}, agora outras pessoas podem ver sua loja! 👏</h2>
+                <h2 id="wellDono">Muito bem, {dono}, agora outras pessoas podem ver sua loja! 👏</h2>
            </div>
 
            <div className="centered">

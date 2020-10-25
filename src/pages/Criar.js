@@ -87,6 +87,12 @@ export default function CreateOrphanage() {
         axios.post("https://fomereal-server.herokuapp.com/comercios/criar", finalData)
         .then( resp => {
             console.log(resp)
+
+            if(resp != null) {
+                sleep(5000)
+
+                window.location.href = `/sucesso?tk=${resp.data.lojaInfo.token}`
+            }
         })
     }
 
