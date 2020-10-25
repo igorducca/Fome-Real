@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Fome-Real/static/css/main.49d0bb3b.chunk.css",
+    "main.js": "/Fome-Real/static/js/main.0dbb5710.chunk.js",
+    "main.js.map": "/Fome-Real/static/js/main.0dbb5710.chunk.js.map",
+    "runtime-main.js": "/Fome-Real/static/js/runtime-main.211df68c.js",
+    "runtime-main.js.map": "/Fome-Real/static/js/runtime-main.211df68c.js.map",
+    "static/css/2.bcddf60d.chunk.css": "/Fome-Real/static/css/2.bcddf60d.chunk.css",
+    "static/js/2.b1a762b6.chunk.js": "/Fome-Real/static/js/2.b1a762b6.chunk.js",
+    "static/js/2.b1a762b6.chunk.js.map": "/Fome-Real/static/js/2.b1a762b6.chunk.js.map",
+    "index.html": "/Fome-Real/index.html",
+    "precache-manifest.723ee063988d96e98b0eb0faa775c2ce.js": "/Fome-Real/precache-manifest.723ee063988d96e98b0eb0faa775c2ce.js",
+    "service-worker.js": "/Fome-Real/service-worker.js",
+    "static/css/2.bcddf60d.chunk.css.map": "/Fome-Real/static/css/2.bcddf60d.chunk.css.map",
+    "static/css/main.49d0bb3b.chunk.css.map": "/Fome-Real/static/css/main.49d0bb3b.chunk.css.map",
+    "static/js/2.b1a762b6.chunk.js.LICENSE.txt": "/Fome-Real/static/js/2.b1a762b6.chunk.js.LICENSE.txt",
+    "static/media/landing.css": "/Fome-Real/static/media/duotone-wallpaepr.fbcce0de.png",
+    "static/media/fome-real-png.png": "/Fome-Real/static/media/fome-real-png.4df4959e.png",
+    "static/media/loading.gif": "/Fome-Real/static/media/loading.b71b7d60.gif",
+    "static/media/neo-criar.css": "/Fome-Real/static/media/pedido-background.51557b60.png",
+    "static/media/sapiens-bike.svg": "/Fome-Real/static/media/sapiens-bike.42329f0a.svg",
+    "static/media/sucess-devices.png": "/Fome-Real/static/media/sucess-devices.bf1763d9.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.211df68c.js",
+    "static/css/2.bcddf60d.chunk.css",
+    "static/js/2.b1a762b6.chunk.js",
+    "static/css/main.49d0bb3b.chunk.css",
+    "static/js/main.0dbb5710.chunk.js"
+  ]
+}
