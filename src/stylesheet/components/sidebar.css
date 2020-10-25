@@ -8,6 +8,8 @@ aside.app-sidebar {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    margin-right: 15px;
 }
 
 aside.app-sidebar img {

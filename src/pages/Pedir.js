@@ -119,7 +119,9 @@ export default function Pedir() {
                     </div>
                 </header>
 
-                <div id="mainGeneratedContent" />
+                <div className="centered">
+                    <div id="mainGeneratedContent" />
+                </div>
             </div>
         )
     }

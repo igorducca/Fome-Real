@@ -16,7 +16,7 @@ export default function Sucesso() {
     let dono = query.get('dn')
     let nome = query.get('nm')
 
-    let url = `http://localhost:3000?loja=${nome}`
+    let url = `https://fomereal.netlify.app/lojas?lj=${nome}`
 
     useEffect(() => {
         axios.post("https://fomereal-server.herokuapp.com/comercio/link/shorten", {
