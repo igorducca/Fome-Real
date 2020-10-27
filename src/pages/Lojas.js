@@ -29,19 +29,22 @@ export default function Lojas() {
 
     function avalPost() {
 
-        var aval = document.getElementById("avalInput").value
-        var autor = document.getElementById("avalNameInput").value
-
-        axios.post("https://fomereal-server.herokuapp.com/comercio/avaliar/Reinaldo", {
-            avaliacao: aval,
-            autor: autor
-        })
+        axios.get(`https://fomereal-server.herokuapp.com/comercio/find/loja/${id}`)
         .then(resp => {
-            console.log(resp)
-
-            if(resp.data.sucesso = true) {
-                window.location.href = window.location.href
-            }
+            var aval = document.getElementById("avalInput").value
+            var autor = document.getElementById("avalNameInput").value
+    
+            axios.post(`https://fomereal-server.herokuapp.com/comercio/avaliar/${resp.data.nome_da_loja}`, {
+                avaliacao: aval,
+                autor: autor
+            })
+            .then(resp => {
+                console.log(resp)
+    
+                if(resp.data.sucesso = true) {
+                    window.location.href = window.location.href
+                }
+            })
         })
     }
 
