@@ -45,7 +45,6 @@ export default function CreateOrphanage() {
                 tipo: produto
             })
             .then(resp => {
-                console.log(resp)
 
                 document.getElementById("productHandlerTitle").innerText = `Produto adicionado com sucesso! Recarregando página...`
                 document.getElementById("productHandlerTitle").style.color = "green"
@@ -70,6 +69,7 @@ export default function CreateOrphanage() {
         var localizacao = document.getElementById("localizacao").value
         var produtosDaLoja = $( "#produtosDaLoja option:selected" ).text();
         var Ndono = document.getElementById("name").value
+        var cardapio = document.getElementById("cardapioLink").value
 
         var finalData = {
             nome_da_loja: nome_da_loja,
@@ -79,14 +79,12 @@ export default function CreateOrphanage() {
             localizacao: localizacao,
             whats: whats,
             image: foto_de_banner,
-            descricao: descricao
+            descricao: descricao,
+            cardapio: cardapio
         }
-
-        console.log(finalData)
 
         axios.post("https://fomereal-server.herokuapp.com/comercios/criar", finalData)
         .then( resp => {
-            console.log(resp)
 
             if(resp != null) {
                 sleep(5000)
@@ -123,7 +121,7 @@ export default function CreateOrphanage() {
                     </div>
 
                     <div className="input-block">
-                        <label htmlFor="numWhats">Número de whatsapp para atendimento</label>
+                        <label htmlFor="numWhats">Número de whatsapp para atendimento (Ex: 7799187587)</label>
                         <input id="numWhats" />
                     </div>
 
@@ -144,6 +142,11 @@ export default function CreateOrphanage() {
                         <div className="input-block">
                             <label htmlFor="imageLink">Link de uma imagem para servir como banner</label>
                             <input id="imageLink" />
+                        </div>
+
+                        <div className="input-block">
+                            <label htmlFor="cardapioLink">Link de uma imagem para servir como cardápio</label>
+                            <input id="cardapioLink" />
                         </div>
 
                         <div style={{display:"flex", justifyContent:"center", marginTop:"15px"}}>

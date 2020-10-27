@@ -20,8 +20,6 @@ export default function Sucesso() {
         axios.get("https://fomereal-server.herokuapp.com/comercio/find/token/"+token)
         .then(resp => {
 
-            console.log(resp)
-
             var data = resp.data
 
             var dono = data.nome_do_dono
@@ -36,8 +34,6 @@ export default function Sucesso() {
                 }
             })
             .then(resp => {
-    
-                console.log(resp)
     
                 var qrcode = resp.data.qrcode
     
@@ -65,7 +61,11 @@ export default function Sucesso() {
            </div>
 
            <div className="centered">
-               <h2>Mostre para as pessoas o QRcode para que eles encontrem sua loja</h2>
+               <h2>Mostre o seu QRcode para as pessoas nos seus stories do insta marcando o @FomeReal</h2>
+           </div>
+
+           <div className="centered">
+               <h2>Irei repostar todos que me marcarem 😜</h2>
            </div>
         </form>
     )

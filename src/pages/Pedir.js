@@ -27,7 +27,7 @@ export default function Pedir() {
                 var target = "#mainGeneratedContent"
     
                 data.forEach(storeBox => {
-                    var str = ` <div id="generatedBox"> <div id="generatedBoxTitle"> <div id="centeredBoxComponent"> <h1>${storeBox.nome_da_loja}</h1> </div> </div> <div id="generatedBoxContent"> <div id="centeredBoxComponent"> <img src="${storeBox.imagem}" id="generatedBoxImage"/> </div><div id="centeredBoxComponent"> <h2>Loja de: ${storeBox.nome_do_dono}</h2></div> </div> </div>`
+                    var str = ` <div id="generatedBox"> <div id="generatedBoxTitle"> <div id="centeredBoxComponent"> <h1>${storeBox.nome_da_loja}</h1> </div> </div> <div id="generatedBoxContent"> <div id="centeredBoxComponent"> <a href="/lojas/${storeBox.nome_da_loja}"> <img src="${storeBox.imagem}" id="generatedBoxImage"/> </a> </div><div id="centeredBoxComponent"> <h2>Loja de: ${storeBox.nome_do_dono}</h2></div> </div> </div>`
                     
                     $(target).append(str)
                 })
@@ -44,25 +44,24 @@ export default function Pedir() {
 
                 if(data != null) {
                     if(data.length = 1) {
-                        console.log(resp.data)
 
                         var target = "#mainGeneratedContent"
 
-                        var str = ` <div id="generatedBox"> <div id="generatedBoxTitle"> <div id="centeredBoxComponent"> <h1>${data.nome_da_loja}</h1> </div> </div> <div id="generatedBoxContent"> <div id="centeredBoxComponent"> <img src="${data.imagem}" id="generatedBoxImage"/> </div><div id="centeredBoxComponent"> <h2>Loja de: ${data.nome_do_dono}</h2></div> </div> </div>`
+                        var str = ` <div id="generatedBox"> <div id="generatedBoxTitle"> <div id="centeredBoxComponent"> <h1>${data.nome_da_loja}</h1> </div> </div> <div id="generatedBoxContent"> <div id="centeredBoxComponent"> <a href="/lojas/${data.nome_da_loja}"> <img src="${data.imagem}" id="generatedBoxImage"/> </a> </div><div id="centeredBoxComponent"> <h2>Loja de: ${data.nome_do_dono}</h2></div> </div> </div>`
                             
                         $(target).append(str)
                     }
                     else if (data.length >= 1) {
                         data.forEach(storeBox => {
-                            var str = ` <div id="generatedBox"> <div id="generatedBoxTitle"> <div id="centeredBoxComponent"> <h1>${storeBox.nome_da_loja}</h1> </div> </div> <div id="generatedBoxContent"> <div id="centeredBoxComponent"> <img src="${storeBox.imagem}" id="generatedBoxImage"/> </div><div id="centeredBoxComponent"> <h2>Loja de: ${storeBox.nome_do_dono}</h2></div> </div> </div>`
+                            var str = ` <div id="generatedBox"> <div id="generatedBoxTitle"> <div id="centeredBoxComponent"> <h1>${storeBox.nome_da_loja}</h1> </div> </div> <div id="generatedBoxContent"> <div id="centeredBoxComponent"> <a href="/lojas/${storeBox.nome_do_dono}"> <img src="${storeBox.imagem}" id="generatedBoxImage"/> </a> </div><div id="centeredBoxComponent"> <h2>Loja de: ${storeBox.nome_do_dono}</h2></div> </div> </div>`
                             
                             $(target).append(str)
                         })
                     }
                 }
                 else {
-                    document.getElementById("inCaseDataNull").hidden = false;
-                    document.getElementById("productNameIndicator").innerText = `Eita, infelizmente eu não conheço nenhuma loja que venda ${produto}`
+                    document.getElementById("productNameIndicator").hidden = true;
+                    document.getElementById("unknownProductH1").innerText = `Ainda não conheço ninguém que vende ${produto}...`
                 }
             })
         }
@@ -70,7 +69,7 @@ export default function Pedir() {
 
     if(query.get('cmd')) {
         return (
-            <div className="mainContent">
+            <div style={{display:"column"}}>
                 <Sidebar />
 
                 <header>
@@ -82,22 +81,24 @@ export default function Pedir() {
                         <div className="centered">
                             <h2 id="productNameIndicator"></h2>
                         </div>
+
+                        <div className="centered">
+                            <h1 id="unknownProductH1"></h1>
+                        </div>
+
+                        <div className="centered">
+                            <h1>Você vende?</h1>
+                        </div>
+
+                        <div className="centered">
+                            <Link to="/criar">
+                                <button id="createRestaurantPointButtonEs">Fazer parte</button>
+                            </Link>
+                        </div>
                     </div>
                 </header>
 
                 <div id="mainGeneratedContent" />
-
-                <div className="inCaseDataNull" id="inCaseDataNull" hidden>
-                    <div className="centered">
-                        <h1>Não conheço lojas que vendam {produto}, mas, se você vender</h1>
-                    </div>
-
-                    <div className="centered">
-                        <Link to="/criar">
-                            <button id="createRestaurantPointButton" style={{marginLeft:"100px"}}>Fazer parte do Fome Real</button>
-                        </Link>
-                    </div>
-                </div>
             </div>
         )
     }

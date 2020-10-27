@@ -75,3 +75,23 @@ body {
 #productNameIndicator {
     color: white;
 }
+
+#createRestaurantPointButtonEs {
+    height: 70px;
+    width: 350px;
+    border-radius: 16px;
+    background-color: #37C77F;
+    border: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 4px 4px 4px 1px #2ea369;
+    transition: .4s ease-in-out;
+}
+
+#createRestaurantPointButtonEs:hover {
+    font-size: 20px;
+    box-shadow: 5px 5px 5px 2px #2ea369;
+}
