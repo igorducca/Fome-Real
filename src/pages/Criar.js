@@ -159,7 +159,7 @@ export default function CreateOrphanage() {
                     <legend>Sobre o seu produto</legend>
 
                     <div className="input-block">
-                        <label htmlFor="lojaDesc">Descreva a sua loja</label>
+                        <label htmlFor="lojaDesc">Descreva a sua loja (Dê um motivo para as pessoas comprarem com você) </label>
                         <textarea id="lojaDesc" />
                     </div>
 

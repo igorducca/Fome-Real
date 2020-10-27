@@ -24,6 +24,14 @@ export default function Pedir() {
             .then(resp => {
                 var data = resp.data
 
+                console.log(data)
+
+                if(data.length == 0) {
+                    document.getElementById("headerProdutoTitle").innerText = `Vish, ainda não conheço nenhuma loja...`
+                    document.getElementById("ifNoneStore").hidden = false;
+                    document.getElementById("noneStoreButtonEs").hidden = false;
+                }
+
                 var target = "#mainGeneratedContent"
     
                 data.forEach(storeBox => {
@@ -116,6 +124,16 @@ export default function Pedir() {
                     <div className="headerBarPedir">
                         <div className="centered">
                             <h1 id="headerProdutoTitle"></h1>
+                        </div>
+
+                        <div className="centered" id="ifNoneStore" hidden>
+                            <h2>Você vende alguma coisa? Vem fazer parte!</h2>
+                        </div>
+
+                        <div className="centered" id="noneStoreButton" hidden>
+                            <Link to="/criar" hidden id="noneStoreButtonEs">
+                                <button id="createRestaurantPointButtonEs">Fazer parte</button>
+                            </Link>
                         </div>
                     </div>
                 </header>

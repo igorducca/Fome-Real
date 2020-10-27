@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import '../stylesheet/pages/landing.css'
-import '../stylesheet/global.css'
+import '../stylesheet/pages/landing.css';
+import '../stylesheet/global.css';
 
-import pngIcon from '../assets/fome-real-png.png'
-import bike from '../assets/sapiens-bike.svg'
-import loading from '../assets/loading.gif'
+import pngIcon from '../assets/fome-real-png.png';
+import bike from '../assets/sapiens-bike.svg';
+import loading from '../assets/loading.gif';
 
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa';
 
-import $ from 'jquery'
+import $ from 'jquery';
 
-import axios from 'axios'
+import axios from 'axios';
 
 export default function Landing() {
 
@@ -26,14 +26,21 @@ export default function Landing() {
         .then(resp => {
             const data = resp.data
 
-            data.forEach(dataE => {
-
+            if(data.length == 0) {
                 document.getElementById("fountFoodType").hidden = false;
+                document.getElementById("moreOptionsText").innerText = `Não encontrei nada aqui... \n Adicione sua loja`
+                document.getElementById("moreOptionsA").href = `/criar`
+            }
+            else {
+                data.forEach(dataE => {
 
-                var str = `<a href="/pedir?cmd=${dataE.tipo}" id="liGen${dataE.tipo}"> <li>${dataE.tipo}</li> </a>`
-
-                $("#foodTypeGener").append(str)
-            })
+                    document.getElementById("fountFoodType").hidden = false;
+    
+                    var str = `<a href="/pedir?cmd=${dataE.tipo}" id="liGen${dataE.tipo}"> <li>${dataE.tipo}</li> </a>`
+    
+                    $("#foodTypeGener").append(str)
+                })
+            }
         })
 
         document.getElementById("loadingGIF").hidden = true;
@@ -66,7 +73,7 @@ export default function Landing() {
                                     </ul>
 
                                     <div className="centered">
-                                        <a href="/pedir"><h2>Ver mais opções</h2></a>
+                                        <a href="/pedir" id="moreOptionsA" ><h2 id="moreOptionsText">Ver mais opções</h2></a>
                                     </div>
                                 </div>
                             </div>
