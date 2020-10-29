@@ -25,6 +25,8 @@ export default function Sucesso() {
             var dono = data.nome_do_dono
 
             document.getElementById("wellDono").innerText = `Muito bem, ${dono}, agora outras pessoas podem ver sua loja! 👏`
+            document.getElementById("tokenText").innerText = `Seu token: ${token}`
+            document.getElementById("deleteLojaInstruct").innerText = `Anote o seu token, por que se caso você queira remover a sua loja de nossa plataforma, basta nos mandar mensagem no instagram e nos fornecer o token de sua loja`
 
             var urlNomeDaLoja = encodeURIComponent(data.nome_da_loja.trim())
 
@@ -66,6 +68,16 @@ export default function Sucesso() {
 
            <div className="centered">
                <h2>Irei repostar todos que me marcarem 😜</h2>
+           </div>
+
+           <div style={{marginTop:"30px"}}>
+               <h1>Caso você queira remover sua loja</h1>
+
+               <hr />
+
+               <h2 id="tokenText" style={{color:"red"}}></h2>
+
+               <h3 id="deleteLojaInstruct"></h3>
            </div>
         </form>
     )

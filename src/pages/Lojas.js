@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import $ from 'jquery';
-import Sidebar from "../components/sidebar"
+import Helmet from 'react-helmet';
 
 import { FiPlus, FiCheck } from 'react-icons/fi';
 
@@ -58,6 +58,7 @@ export default function Lojas() {
             var avaliacoes = resp.data.avaliacoes
 
             document.getElementById("lojaImg").src = `${data.imagem}`
+            document.getElementById("pageTitleHelmet").innerText = `FR - ${data.nome_da_loja}`
             document.getElementById("descriptH2").innerText = `"${data.descricao}"`
             document.getElementById("pageTitle").innerText = `${data.nome_da_loja}`
             document.getElementById("donoName").innerText = `A loja de ${data.nome_do_dono}`
@@ -83,6 +84,11 @@ export default function Lojas() {
 
     return (
         <div className="mainContent">
+
+            <Helmet>
+                <title id="pageTitleHelmet"></title>
+            </Helmet>
+
             <form className="create-orphanage-form">
                     <h1 id="pageTitle" />
 

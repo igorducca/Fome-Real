@@ -71,27 +71,87 @@ export default function CreateOrphanage() {
         var Ndono = document.getElementById("name").value
         var cardapio = document.getElementById("cardapioLink").value
 
-        var finalData = {
-            nome_da_loja: nome_da_loja,
-            nome_do_dono: Ndono,
-            atendimento: horario_de_atendimento,
-            produto_vendido: produtosDaLoja,
-            localizacao: localizacao,
-            whats: whats,
-            image: foto_de_banner,
-            descricao: descricao,
-            cardapio: cardapio
+        
+        var errorList = "#errorList"
+
+        if(!nome_da_loja) {
+            window.scrollTo(0, 0)
+            document.getElementById("incaseErrorUl").hidden = false;
+            $(errorList).append(`<li>Nome da loja</li>`)
         }
 
-        axios.post("https://fomereal-server.herokuapp.com/comercios/criar", finalData)
-        .then( resp => {
+        if(!horario_de_atendimento) {
+            window.scrollTo(0, 0)
+            document.getElementById("incaseErrorUl").hidden = false;
+            $(errorList).append(`<li>Horário de atendimento</li>`)
+        }
 
-            if(resp != null) {
-                sleep(5000)
+        if(!whats) {
+            window.scrollTo(0, 0)
+            document.getElementById("incaseErrorUl").hidden = false;
+            $(errorList).append(`<li>Número de whatsapp</li>`)
+        }
 
-                window.location.href = `/criar/sucesso?tk=${resp.data.lojaInfo.token}`
+        if(!foto_de_banner) {
+            document.getElementById("incaseErrorUl").hidden = false;
+            window.scrollTo(0, 0)
+            $(errorList).append(`<li>Foto de banner</li>`)
+        }
+
+        
+        if(!descricao) {
+            document.getElementById("incaseErrorUl").hidden = false;
+            window.scrollTo(0, 0)
+            $(errorList).append(`<li>Descrição da loja</li>`)
+        }
+
+        if(!localizacao) {
+            document.getElementById("incaseErrorUl").hidden = false;
+            window.scrollTo(0, 0)
+            $(errorList).append(`<li>Localização da loja</li>`)
+        }
+
+        if(!produtosDaLoja) {
+            document.getElementById("incaseErrorUl").hidden = false;
+            window.scrollTo(0, 0)
+            $(errorList).append(`<li>Produtos vendidos na sua loja</li>`)
+        }
+
+        if(!Ndono) {
+            document.getElementById("incaseErrorUl").hidden = false;
+            window.scrollTo(0, 0)
+            $(errorList).append(`<li>Seu nome</li>`)
+        }
+
+        if(!cardapio) {
+            document.getElementById("incaseErrorUl").hidden = false;
+            window.scrollTo(0, 0)
+            $(errorList).append(`<li>Foto do cardápio da loja</li>`)
+        }
+
+        if(nome_da_loja && horario_de_atendimento && whats && foto_de_banner && descricao && localizacao && produtosDaLoja && Ndono && cardapio) {
+            var finalData = {
+                nome_da_loja: nome_da_loja,
+                nome_do_dono: Ndono,
+                atendimento: horario_de_atendimento,
+                produto_vendido: produtosDaLoja,
+                localizacao: localizacao,
+                whats: whats,
+                image: foto_de_banner,
+                descricao: descricao,
+                cardapio: cardapio
             }
-        })
+    
+            axios.post("https://fomereal-server.herokuapp.com/comercios/criar", finalData)
+            .then( resp => {
+    
+                if(resp != null) {
+                    sleep(5000)
+    
+                    window.location.href = `/criar/sucesso?tk=${resp.data.lojaInfo.token}`
+                }
+            })
+        }
     }
 
   return (
@@ -104,6 +164,12 @@ export default function CreateOrphanage() {
                 <form className="create-orphanage-form">
                     <fieldset>
                     <legend>Dados da sua loja</legend>
+
+                    <fieldset id="incaseErrorUl" hidden>
+                        <h2 style={{color:"red"}}>Erro ao criar! Faltando:</h2>
+
+                        <ul style={{color:"red"}}  id="errorList" />
+                    </fieldset>
 
                     <div className="input-block">
                         <label htmlFor="name" style={{marginTop:"15px"}} onChange={ (key) => { setNomeDoDono(key.target.value) } } value={nome_do_dono} >Seu nome (Dono da loja)</label>
