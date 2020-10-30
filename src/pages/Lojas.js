@@ -33,6 +33,11 @@ export default function Lojas() {
         .then(resp => {
             var aval = document.getElementById("avalInput").value
             var autor = document.getElementById("avalNameInput").value
+
+            if(aval || autor == '') {
+                window.location.reload()
+                return false;
+            }
     
             axios.post(`https://fomereal-server.herokuapp.com/comercio/avaliar/${resp.data.nome_da_loja}`, {
                 avaliacao: aval,
